@@ -163,7 +163,7 @@ def saveBestGenModel(entity, epochs, batch_size, learning_rate, normal_windows, 
 
         for i, batch in enumerate(dataloader):
             x = batch[0].to(device)
-            x_hat, mu, log_var, latent_vectors, x_anom, z_pert = model(x)
+            x_hat, mu, log_var, x_anom, z_pert = model(x)
 
             loss_dict = loss_function(x, x_hat, mu, log_var, latent_vectors, z_pert, x_anom)
             loss = loss_dict['total_loss']

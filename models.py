@@ -28,7 +28,7 @@ class TCVAE(nn.Module):
         self.encoder = nn.Sequential(
             nn.Conv1d(in_channels=input_dim, out_channels=hidden_dim, kernel_size = k_size, stride= strd, padding=padd),
             nn.ReLU(),
-            nn.Conv1d(in_channels=hidden_dim, out_channels=hidden_dim * 2, kernel_size= k_size, stride= strd, padding=padd),
+            nn.Conv1d(in_channels=hidden_dim, out_channels=hidden_dim * 4, kernel_size= k_size, stride= strd, padding=padd),
             nn.ReLU(),
             nn.Conv1d(in_channels=hidden_dim * 2, out_channels=hidden_dim * 4, kernel_size= k_size, stride= strd, padding=padd),
             nn.ReLU()
@@ -47,7 +47,7 @@ class TCVAE(nn.Module):
         self.decoder = nn.Sequential(
             nn.ConvTranspose1d(in_channels=hidden_dim * 4, out_channels=hidden_dim * 2, kernel_size= k_size, stride= strd, padding=padd),
             nn.ReLU(),
-            nn.ConvTranspose1d(in_channels=hidden_dim * 2, out_channels=hidden_dim, kernel_size= k_size, stride= strd, padding=padd),
+            nn.ConvTranspose1d(in_channels=hidden_dim * 8, out_channels=hidden_dim, kernel_size= k_size, stride= strd, padding=padd),
             nn.ReLU(),
             nn.ConvTranspose1d(in_channels=hidden_dim, out_channels=input_dim, kernel_size= k_size, stride= strd, padding=padd),
             nn.ReLU()  # Sigmoid to ensure output is in range (0, 1)
