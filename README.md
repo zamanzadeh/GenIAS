@@ -1,4 +1,5 @@
 # GenIAS: Generator for Instantiating Anomalies in Time Series
+Z Z Darban, Q Wang, G. I. Webb, S. Pan, C. C. Aggarwal, and M. Salehi
 
 **Accepted at WSDM 2027.**
 
